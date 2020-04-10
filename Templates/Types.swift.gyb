@@ -1,0 +1,9 @@
+%{
+import csv
+import sys
+}%
+% for row in csv.DictReader(sys.stdin, ["attribute_name", "description", "swift_type"], delimiter="|"):
+protocol Has_${row["attribute_name"]} {
+    var ${row["attribute_name"]}: ${row["swift_type"]} { get }
+}
+% end

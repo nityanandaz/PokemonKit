@@ -4,6 +4,8 @@ import csv
 import re
 import logging
 
+from itertools import chain
+from functools import partial
 
 logger = logging.Logger(__name__)
 
@@ -105,18 +107,59 @@ def attribute_names(lines):
     return result
 
 
-def writing(xs):
-    # print(f"# Rows: {len(xs)}")
-    writer = csv.DictWriter(
-        sys.stdout, ["attribute_name", "description", "swift_type"], delimiter="|"
-    )
-    # writer.writeheader()
-    # sorted(xs, key=lambda x: x["x"])
+def enpoint_transform(match):
+    path_component = match.group(1)
+    name = match.group(2)
+
+    return {"name": name, "path_component": path_component}
+
+
+def match(line, a_config):
+    (matcher, transform) = a_config
+
+    _match = matcher(line)
+    if _match:
+        return (line, transform(_match))
+    else:
+        return (line, None)
+
+
+def matches(configuration, line):
+    _matches = [match(line, c) for c in configuration]
+
+    if not (None for (l, t) in _matches if t):
+        # logger.warning(line)
+        pass
+
+    return (t for (l, t) in _matches)
+
+
+def writing(xs, fieldnames):
+    writer = csv.DictWriter(sys.stdout, fieldnames, delimiter="|")
+
+    writer.writeheader()
     writer.writerows(xs)
+
+
+def endpoints(lines):
+    # e.g. <li><a href="#move-targets">Move Targets</a></li>
+    endpoint_pattern = r'\t+<li><a href="#([\w-]+)">([\w ]+)</a></li>'
+
+    patterns = [endpoint_pattern]
+    matchers = [partial(re.match, p) for p in patterns]
+    transforms = [enpoint_transform]
+
+    configuration = list(zip(matchers, transforms))
+
+    matched = [matches(configuration, line) for line in lines]
+
+    writing(filter(None, chain(*matched)), ["name", "path_component"])
 
 
 if __name__ == "__main__":
     # reading https://github.com/PokeAPI/pokeapi/blob/master/pokemon_v2/README.md
     lines = sys.stdin.readlines()
 
-    writing(attribute_names(lines))
+    if sys.argv[1] == "Endpoints":
+        endpoints(lines)
+    # writing(attribute_names(lines), ["attribute_name", "description", "swift_type"])

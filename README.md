@@ -79,3 +79,7 @@ Nityananda Zbil
 
 Special thanks to Yeung Yiu Hung, hkclex@gmail.com.
 They initially wrote all the classes and functions.
+
+## License
+
+MIT

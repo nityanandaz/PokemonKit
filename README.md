@@ -47,6 +47,11 @@ Execute `$ make generate` to renew `Types+Resource.swift`.
 
 `InternalTests.swift` sets intentionally `PokemonKit.baseURL` to a localhost URL.
 
+## Contributing
+
+If there are any errors decoding a Resource, let me know by creating an issue.
+I am happy to fix that.
+
 ## Authors
 
 - Nityananda Zbil

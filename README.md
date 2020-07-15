@@ -8,7 +8,7 @@ Callbacks can easily be transformed into _Combine_ Futures.
 
 ## Installation
 
-Add `.package(url: "https://github.com/nityanandaz/PokemonKit.git", from: "4.0.0")` to your dependencies.
+Add `.package(url: "https://github.com/nityanandaz/PokemonKit.git", from: "5.0.0")` to your dependencies.
 
 ## Usage
 

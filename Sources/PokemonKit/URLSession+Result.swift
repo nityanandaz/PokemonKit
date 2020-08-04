@@ -29,6 +29,7 @@ internal extension URLSession {
                 completion(.failure(error))
             case (let data?, _):
                 let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
                 do {
                     let decoded = try decoder.decode(T.self, from: data)
                     completion(.success(decoded))

@@ -20,15 +20,6 @@ public struct Language: Codable {
     
     /// The name of this language listed in different languages
     public let names: [Name]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case official = "official"
-        case iso639 = "iso639"
-        case iso3166 = "iso3166"
-        case names = "names"
-    }
 }
 
 /// Pokemon Type
@@ -39,11 +30,6 @@ public struct TypePokemon: Codable {
     
     /// The Pokémon that has the referenced type
     public let pokemon: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case slot = "slot"
-        case pokemon = "pokemon"
-    }
 }
 
 /// Pokemon Type Relations
@@ -66,15 +52,6 @@ public struct TypeRelations: Codable {
     
     /// A list of types that are very effective against this type
     public let doubleDamageFrom: [NamedAPIResource]
-
-    enum CodingKeys: String, CodingKey {
-        case noDamageTo = "no_damage_to"
-        case halfDamageTo = "half_damage_to"
-        case doubleDamageTo = "double_damage_to"
-        case noDamageFrom = "no_damage_from"
-        case halfDamageFrom = "half_damage_from"
-        case doubleDamageFrom = "double_damage_from"
-    }
 }
 
 /// Types are properties for Pokémon and their moves. Each type has three properties: which types of Pokémon it is super effective against, which types of Pokémon it is not very effective against, and which types of Pokémon it is completely ineffective against.
@@ -106,18 +83,6 @@ public struct Type: Codable {
     
     /// A list of moves that have this type
     public let moves: [NamedAPIResource]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case damageRelations = "damage_relations"
-        case gameIndices = "game_indices"
-        case generation = "generation"
-        case moveDamageClass = "move_damage_class"
-        case names = "names"
-        case pokemon = "pokemon"
-        case moves = "moves"
-    }
 }
 
 
@@ -129,11 +94,6 @@ public struct NatureStatAffectSets: Codable {
     
     /// A list of nature sand how they change the referenced stat
     public let decrease: [NatureStatAffect]
-
-    enum CodingKeys: String, CodingKey {
-        case increase = "increase"
-        case decrease = "decrease"
-    }
 }
 
 
@@ -145,11 +105,6 @@ public struct NatureStatAffect: Codable {
     
     /// The nature causing the change
     public let nature: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case maxChange = "max_change"
-        case nature = "nature"
-    }
 }
 
 /// Move Stat Affect
@@ -160,11 +115,6 @@ public struct MoveStatAffect: Codable {
     
     /// The move causing the change
     public let move: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case change = "change"
-        case move = "move"
-    }
 }
 
 /// Move Stat Affect Sets
@@ -175,11 +125,6 @@ public struct MoveStatAffectSets: Codable {
     
     /// A list of nature sand how they change the referenced stat
     public let decrease: [MoveStatAffect]
-
-    enum CodingKeys: String, CodingKey {
-        case increase = "increase"
-        case decrease = "decrease"
-    }
 }
 
 /// Stats determine certain aspects of battles. Each Pokémon has a value for each stat which grows as they gain levels and can be altered momentarily by effects in battles.
@@ -211,18 +156,6 @@ public struct Stat: Codable {
 
     /// The name of this region listed in different languages
     public let names: [Name]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case gameIndex = "game_index"
-        case isBattleOnly = "is_battle_only"
-        case affectingMoves = "affecting_moves"
-        case affectingNatures = "affecting_natures"
-        case characteristics = "characteristics"
-        case moveDamageClass = "move_damage_class"
-        case names = "names"
-    }
 }
 
 /// Pokemon Species Dex Entry
@@ -233,11 +166,6 @@ public struct PokemonSpeciesDexEntry: Codable {
     
     /// The Pokédex the referenced Pokémon species can be found in
     public let pokedex: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case entryNumber = "entry_number"
-        case pokedex = "pokedex"
-    }
 }
 
 /// PalPark Encounter Area
@@ -251,12 +179,6 @@ public struct PalParkEncounterArea: Codable {
     
     /// The pal park area where this encounter happens
     public let area: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case baseScore = "base_score"
-        case rate = "rate"
-        case area = "area"
-    }
 }
 
 /// Pokemon Species Flavor Text
@@ -270,12 +192,6 @@ public struct PokemonSpeciesFlavorText: Codable {
     
     /// The version this flavor text entry is used in
     public let version: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case flavorText = "flavor_text"
-        case language = "language"
-        case version = "version"
-    }
 }
 
 /// TODO: Documentation
@@ -289,12 +205,6 @@ public struct AbilityFlavorText: Codable {
 
     /// The version this flavor text entry is used in
     public let versionGroup: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case flavorText = "flavor_text"
-        case language = "language"
-        case versionGroup = "version_group"
-    }
 }
 
 /// Genus
@@ -305,11 +215,6 @@ public struct Genus: Codable {
     
     /// The language this genus is in
     public let language: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case genus = "genus"
-        case language = "language"
-    }
 }
 
 /// TODO: Documentation
@@ -320,11 +225,6 @@ public struct PokemonSpeciesVariety: Codable {
 
     /// TODO: Documentation
     public let pokemon: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case isDefault = "is_default"
-        case pokemon = "pokemon"
-    }
 }
 
 /// A Pokémon Species forms the basis for at least one Pokémon. Attributes of a Pokémon species are shared across all varieties of Pokémon within the species. A good example is Wormadam; Wormadam is the species which can be found in three different varieties, Wormadam-Trash, Wormadam-Sandy and Wormadam-Plant.
@@ -404,34 +304,6 @@ public struct PokemonSpecies: Codable {
     
     /// A list of the Pokémon that exist within this Pokémon species
     public let varieties: [PokemonSpeciesVariety]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case order = "order"
-        case genderRate = "gender_rate"
-        case captureRate = "capture_rate"
-        case baseHappiness = "base_happiness"
-        case isBaby = "is_baby"
-        case hatchCounter = "hatch_counter"
-        case hasGenderDifferences = "has_gender_differences"
-        case formsSwitchable = "forms_switchable"
-        case growthRate = "growth_rate"
-        case pokedexNumbers = "pokedex_numbers"
-        case eggGroups = "egg_groups"
-        case color = "color"
-        case shape = "shape"
-        case evolvesFromSpecies = "evolves_from_species"
-        case evolutionChain = "evolution_chain"
-        case habitat = "habitat"
-        case generation = "generation"
-        case names = "names"
-        case palParkEncounters = "pal_park_encounters"
-        case flavorTextEntries = "flavor_text_entries"
-        case formDescriptions = "form_descriptions"
-        case genera = "genera"
-        case varieties = "varieties"
-    }
 }
 
 /// An Awesome Name
@@ -442,11 +314,6 @@ public struct AwesomeName: Codable {
     
     /// The language this "scientific" name is in
     public let language: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case awesomeName = "awesome_name"
-        case language = "language"
-    }
 }
 
 /// Shapes used for sorting Pokémon in a Pokédex.
@@ -466,14 +333,6 @@ public struct PokemonShape: Codable {
     
     /// A list of the Pokémon species that have this shape
     public let pokemonSpecies: [NamedAPIResource]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case awesomeNames = "awesome_names"
-        case names = "names"
-        case pokemonSpecies = "pokemon_species"
-    }
 }
 
 /// Habitats are generally different terrain Pokémon can be found in but can also be areas designated for rare or legendary Pokémon.
@@ -490,13 +349,6 @@ public struct PokemonHabitat: Codable {
     
     /// A list of the Pokémon species that can be found in this habitat
     public let pokemonSpecies: [NamedAPIResource]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case names = "names"
-        case pokemonSpecies = "pokemon_species"
-    }
 }
 
 /// Pokemon Form Sprites
@@ -513,13 +365,6 @@ public struct PokemonFormSprites: Codable {
     
     /// The shiny depiction of this Pokémon form from the back in battle
     public let backShiny: String
-
-    enum CodingKeys: String, CodingKey {
-        case frontDefault = "front_default"
-        case frontShiny = "front_shiny"
-        case backDefault = "back_default"
-        case backShiny = "back_shiny"
-    }
 }
 
 /// Some Pokémon have the ability to take on different forms. At times, these differences are purely cosmetic and have no bearing on the difference in the Pokémon's stats from another; however, several Pokémon differ in stats (other than HP), type, and Ability depending on their form.
@@ -557,20 +402,6 @@ public struct PokemonForm: Codable {
     
     /// The version group this Pokémon form was introduced in
     public let versionGroup: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case order = "order"
-        case formOrder = "form_order"
-        case isDefault = "is_default"
-        case isBattleOnly = "is_battle_only"
-        case isMega = "is_mega"
-        case formName = "form_name"
-        case pokemon = "pokemon"
-        case sprites = "sprites"
-        case versionGroup = "version_group"
-    }
 }
 
 /// Colors used for sorting Pokémon in a Pokédex. The color listed in the Pokédex is usually the color most apparent or covering each Pokémon's body. No orange category exists; Pokémon that are primarily orange are listed as red or brown.
@@ -587,13 +418,6 @@ public struct PokemonColor: Codable {
     
     /// A list of the Pokémon species that have this color
     public let pokemonSpecies: [NamedAPIResource]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case names = "names"
-        case pokemonSpecies = "pokemon_species"
-    }
 }
 
 /// Version Game Index
@@ -604,11 +428,6 @@ public struct VersionGameIndex: Codable {
     
     /// The version relevent to this game index
     public let version: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case gameIndex = "game_index"
-        case version = "version"
-    }
 }
 
 /// Pokemon Ability
@@ -622,12 +441,6 @@ public struct PokemonAbility: Codable {
     
     /// The ability the Pokémon may have
     public let ability: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case isHidden = "is_hidden"
-        case slot = "slot"
-        case ability = "ability"
-    }
 }
 
 /// Location Area Encounter
@@ -638,11 +451,6 @@ public struct LocationAreaEncounter: Codable {
     
     /// A list of versions and encounters with the referenced Pokémon that might happen
     public let versionDetails: [VersionEncounterDetail]
-
-    enum CodingKeys: String, CodingKey {
-        case locationArea = "location_area"
-        case versionDetails = "version_details"
-    }
 }
 
 /// Pokemon Sprites
@@ -671,17 +479,6 @@ public struct PokemonSprites: Codable {
     
     /// The shiny female depiction of this Pokémon from the back in battle
     public let backShinyFemale: String?
-
-    enum CodingKeys: String, CodingKey {
-        case frontDefault = "front_default"
-        case frontShiny = "front_shiny"
-        case frontFemale = "front_female"
-        case frontShinyFemale = "front_shiny_female"
-        case backDefault = "back_default"
-        case backShiny = "back_shiny"
-        case backFemale = "back_female"
-        case backShinyFemale = "back_shiny_female"
-    }
 }
 
 /// Pokemon Type
@@ -692,11 +489,6 @@ public struct PokemonType: Codable {
     
     /// The type the referenced Pokémon has
     public let type: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case slot = "slot"
-        case type = "type"
-    }
 }
 
 /// TODO: Documentation
@@ -710,12 +502,6 @@ public struct PokemonMoveVersion: Codable {
 
     /// TODO: Documentation
     public let levelLearnedAt: Int
-
-    enum CodingKeys: String, CodingKey {
-        case moveLearnMethod = "move_learn_method"
-        case versionGroup = "version_group"
-        case levelLearnedAt = "level_learned_at"
-    }
 }
 
 /// TODO: Documentation
@@ -726,11 +512,6 @@ public struct PokemonMove: Codable {
 
     /// TODO: Documentation
     public let versionGroupDetails: [PokemonMoveVersion]
-
-    enum CodingKeys: String, CodingKey {
-        case move = "move"
-        case versionGroupDetails = "version_group_details"
-    }
 }
 
 /// TODO: Documentation
@@ -744,12 +525,6 @@ public struct PokemonStat: Codable {
 
     /// TODO: Documentation
     public let baseStat: Int
-
-    enum CodingKeys: String, CodingKey {
-        case stat = "stat"
-        case effort = "effort"
-        case baseStat = "base_stat"
-    }
 }
 
 /// Pokémon are the creatures that inhabit the world of the Pokémon games. They can be caught using Pokéballs and trained by battling with other Pokémon. See Bulbapedia for greater detail.
@@ -805,26 +580,6 @@ public struct Pokemon: Codable {
     
     /// A list of details showing types this Pokémon has
     public let types: [PokemonType]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case baseExperience = "base_experience"
-        case height = "height"
-        case isDefault = "is_default"
-        case order = "order"
-        case weight = "weight"
-        case abilities = "abilities"
-        case forms = "forms"
-        case gameIndices = "game_indices"
-        case heldItems = "held_items"
-        case locationAreaEncounters = "location_area_encounters"
-        case moves = "moves"
-        case sprites = "sprites"
-        case species = "species"
-        case stats = "stats"
-        case types = "types"
-    }
 }
 
 /// Nature Pokeathlon Stat Affect
@@ -835,11 +590,6 @@ public struct NaturePokeathlonStatAffect: Codable {
     
     /// The nature causing the change
     public let nature: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case maxChange = "max_change"
-        case nature = "nature"
-    }
 }
 
 /// Nature Pokeathlon Stat Affect Sets
@@ -850,11 +600,6 @@ public struct NaturePokeathlonStatAffectSets: Codable {
     
     /// A list of natures and how they change the referenced Pokéathlon stat
     public let decrease: [NaturePokeathlonStatAffect]
-
-    enum CodingKeys: String, CodingKey {
-        case increase = "increase"
-        case decrease = "decrease"
-    }
 }
 
 /// Pokeathlon Stats are different attributes of a Pokémon's performance in Pokéathlons. In Pokéathlons, competitions happen on different courses; one for each of the different Pokéathlon stats. See Bulbapedia for greater detail.
@@ -871,13 +616,6 @@ public struct PokeathlonStat: Codable {
     
     /// A detail of natures which affect this Pokéathlon stat positively or negatively
     public let affectingNatures: NaturePokeathlonStatAffectSets
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case names = "names"
-        case affectingNatures = "affecting_natures"
-    }
 }
 
 /// Move Battle Style Preference
@@ -891,12 +629,6 @@ public struct MoveBattleStylePreference: Codable {
     
     /// The move battle style
     public let moveBattleStyle: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case lowHpPreference = "low_hp_preference"
-        case highHpPreference = "high_hp_preference"
-        case moveBattleStyle = "move_battle_style"
-    }
 }
 
 
@@ -907,11 +639,6 @@ public struct MoveBattleStylePreference: Codable {
 public struct NatureStatChange: Codable {
     public let maxChange: Int
     public let pokeathlonStat: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case maxChange = "max_change"
-        case pokeathlonStat = "pokeathlon_stat"
-    }
 }
 
 /// Natures influence how a Pokémon's stats grow. See Bulbapedia ( http://bulbapedia.bulbagarden.net/wiki/Nature ) for greater detail.
@@ -943,18 +670,6 @@ public struct Nature: Codable {
     
     /// The name of this nature listed in different languages
     public let names: [Name]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case decreasedStat = "decreased_stat"
-        case increasedStat = "increased_stat"
-        case hatesFlavor = "hates_flavor"
-        case likesFlavor = "likes_flavor"
-        case pokeathlonStatChanges = "pokeathlon_stat_changes"
-        case moveBattleStylePreferences = "move_battle_style_preferences"
-        case names = "names"
-    }
 }
 
 
@@ -971,11 +686,6 @@ public struct GrowthRateExperienceLevel: Codable {
     
     /// The amount of experience required to reach the referenced level
     public let experience: Int
-
-    enum CodingKeys: String, CodingKey {
-        case level = "level"
-        case experience = "experience"
-    }
 }
 
 /// Growth rates are the speed with which Pokémon gain levels through experience. Check out Bulbapedia ( http://bulbapedia.bulbagarden.net/wiki/Experience ) for greater detail.
@@ -998,15 +708,6 @@ public struct GrowthRate: Codable {
     
     /// A list of Pokémon species that gain levels at this growth rate
     public let pokemonSpecies: [NamedAPIResource]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case formula = "formula"
-        case descriptions = "descriptions"
-        case levels = "levels"
-        case pokemonSpecies = "pokemon_species"
-    }
 }
 
 /// Pokemon Species Gender
@@ -1017,11 +718,6 @@ public struct PokemonSpeciesGender: Codable {
     
     /// A Pokémon species that can be the referenced gender
     public let pokemonSpecies: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case rate = "rate"
-        case pokemonSpecies = "pokemon_species"
-    }
 }
 
 /// Genders were introduced in Generation II for the purposes of breeding Pokémon but can also result in visual differences or even different evolutionary lines. Check out Bulbapedia for greater detail.
@@ -1038,13 +734,6 @@ public struct Gender: Codable {
     
     /// A list of Pokémon species that required this gender in order for a Pokémon to evolve into them
     public let requiredForEvolution: [NamedAPIResource]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case pokemonSpeciesDetails = "pokemon_species_details"
-        case requiredForEvolution = "required_for_evolution"
-    }
 }
 
 /// Egg Groups are categories which determine which Pokémon are able to interbreed. Pokémon may belong to either one or two Egg Groups. Check out Bulbapedia for greater detail.
@@ -1061,13 +750,6 @@ public struct EggGroup: Codable {
     
     /// A list of all Pokémon species that are members of this egg group
     public let pokemonSpecies: [NamedAPIResource]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case names = "names"
-        case pokemonSpecies = "pokemon_species"
-    }
 }
 
 /// Characteristics indicate which stat contains a Pokémon's highest IV. A Pokémon's Characteristic is determined by the remainder of its highest IV divided by 5 (gene_modulo). Check out Bulbapedia for greater detail.
@@ -1084,13 +766,6 @@ public struct Characteristic: Codable {
     
     /// The descriptions of this characteristic listed in different languages
     public let descriptions: [Description]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case geneModulo = "gene_modulo"
-        case possibleValues = "possible_values"
-        case descriptions = "descriptions"
-    }
 }
 
 /// Ability Pokemon
@@ -1104,12 +779,6 @@ public struct AbilityPokemon: Codable {
     
     /// The Pokémon this ability could belong to
     public let pokemon: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case isHidden = "is_hidden"
-        case slot = "slot"
-        case pokemon = "pokemon"
-    }
 }
 
 /// Abilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have mutiple possible abilities but can have only one ability at a time. Check out Bulbapedia for greater detail.
@@ -1141,18 +810,6 @@ public struct Ability: Codable {
 
     /// A list of Pokémon that could potentially have this ability
     public let pokemon: [AbilityPokemon]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case isMainSeries = "is_main_series"
-        case generation = "generation"
-        case names = "names"
-        case effectEntries = "effect_entries"
-        case effectChanges = "effect_changes"
-        case flavorTextEntries = "flavor_text_entries"
-        case pokemon = "pokemon"
-    }
 }
 
 /// A region is an organized area of the Pokémon world. Most often, the main difference between regions is the species of Pokémon that can be encountered within them.
@@ -1178,16 +835,6 @@ public struct Region: Codable {
     
     /// A list of version groups where this region can be visited
     public let versionGroups: [NamedAPIResource]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case locations = "locations"
-        case mainGeneration = "main_generation"
-        case names = "names"
-        case pokedexes = "pokedexes"
-        case versionGroups = "version_groups"
-    }
 }
 
 /// Areas used for grouping Pokémon encounters in Pal Park. They're like habitats that are specific to Pal Park.
@@ -1201,12 +848,6 @@ public struct PalParkEncounterSpecies: Codable {
     
     /// The Pokémon species being encountered
     public let pokemonSpecies: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case baseScore = "base_score"
-        case rate = "rate"
-        case pokemonSpecies = "pokemon_species"
-    }
 }
 
 /// Pal Park Area
@@ -1223,13 +864,6 @@ public struct PalParkArea: Codable {
     
     /// A list of Pokémon encountered in thi pal park area along with details
     public let pokemonEncounters: [PalParkEncounterSpecies]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case names = "names"
-        case pokemonEncounters = "pokemon_encounters"
-    }
 }
 
 /// Locations that can be visited within the games. Locations make up sizable portions of regions, like cities or routes.
@@ -1252,15 +886,6 @@ public struct Location: Codable {
     
     /// Areas that can be found within this location
     public let areas: [APIResource]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case region = "region"
-        case names = "names"
-        case gameIndices = "game_indices"
-        case areas = "areas"
-    }
 }
 
 /// Encounter
@@ -1280,14 +905,6 @@ public struct Encounter: Codable {
     
     /// The method by which this encounter happens
     public let method: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case minLevel = "min_level"
-        case maxLevel = "max_level"
-        case conditionValues = "condition_values"
-        case chance = "chance"
-        case method = "method"
-    }
 }
 
 /// Version Encounter Detail
@@ -1301,12 +918,6 @@ public struct VersionEncounterDetail: Codable {
     
     /// A list of encounters and their specifics
     public let encounterDetails:  [Encounter]
-
-    enum CodingKeys: String, CodingKey {
-        case version = "version"
-        case maxChance = "max_chance"
-        case encounterDetails = "encounter_details"
-    }
 }
 
 /// Pokemon Encounter
@@ -1317,11 +928,6 @@ public struct PokemonEncounter: Codable {
     
     /// A list of versions and encounters with Pokémon that might happen in the referenced location area
     public let versionDetails:  [VersionEncounterDetail]
-
-    enum CodingKeys: String, CodingKey {
-        case pokemon = "pokemon"
-        case versionDetails = "version_details"
-    }
 }
 
 /// Encounter Version Details
@@ -1332,11 +938,6 @@ public struct EncounterVersionDetails: Codable {
     
     /// The version of the game in which the encounter can occur with the given chance.
     public let version: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case rate = "rate"
-        case version = "version"
-    }
 }
 
 /// Encounter Method Rate
@@ -1347,11 +948,6 @@ public struct EncounterMethodRate: Codable {
     
     /// The chance of the encounter to occur on a version of the game.
     public let versionDetails:  [EncounterVersionDetails]
-
-    enum CodingKeys: String, CodingKey {
-        case encounterMethod = "encounter_method"
-        case versionDetails = "version_details"
-    }
 }
 
 /// Location areas are sections of areas, such as floors in a building or cave. Each area has its own set of possible Pokémon encounters.
@@ -1377,16 +973,6 @@ public struct LocationArea: Codable {
     
     /// A list of Pokémon that can be encountered in this area along with version specific details about the encounter
     public let pokemonEncounters:  [PokemonEncounter]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case gameIndex = "game_index"
-        case encounterMethodRates = "encounter_method_rates"
-        case location = "location"
-        case names = "names"
-        case pokemonEncounters = "pokemon_encounters"
-    }
 }
 
 /// Targets moves can be directed at during battle. Targets can be Pokémon, environments or even other moves.
@@ -1406,14 +992,6 @@ public struct MoveTarget: Codable {
     
     /// The name of this move target listed in different languages
     public let names:  [Name]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case descriptions = "descriptions"
-        case moves = "moves"
-        case names = "names"
-    }
 }
 
 /// Methods by which Pokémon can learn moves.
@@ -1433,14 +1011,6 @@ public struct MoveLearnMethod: Codable {
     
     /// A list of version groups where moves can be learned through this method
     public let versionGroups:  [NamedAPIResource]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case descriptions = "descriptions"
-        case names = "names"
-        case versionGroups = "version_groups"
-    }
 }
 
 /// Damage classes moves can have, e.g. physical, special, or non-damaging.
@@ -1460,14 +1030,6 @@ public struct MoveDamageClass: Codable {
     
     /// The name of this move damage class listed in different languages
     public let names:  [Name]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case descriptions = "descriptions"
-        case moves = "moves"
-        case names = "names"
-    }
 }
 
 /// Very general categories that loosely group move effects.
@@ -1484,13 +1046,6 @@ public struct MoveCategory: Codable {
     
     /// The description of this move ailment listed in different languages
     public let descriptions:  [Description]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case moves = "moves"
-        case descriptions = "descriptions"
-    }
 }
 
 /// Styles of moves when used in the Battle Palace. See Bulbapedia for greater detail.
@@ -1504,12 +1059,6 @@ public struct MoveBattleStyle: Codable {
     
     /// The name of this move battle style listed in different languages
     public let names:  [Name]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case names = "names"
-    }
 }
 
 /// Move Ailments are status conditions caused by moves used during battle. See Bulbapedia for greater detail.
@@ -1526,13 +1075,6 @@ public struct MoveAilment: Codable {
     
     /// The name of this move ailment listed in different languages
     public let names:  [Name]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case moves = "moves"
-        case names = "names"
-    }
 }
 
 /// Move Stat Change
@@ -1543,11 +1085,6 @@ public struct MoveStatChange: Codable {
     
     /// The stat being affected
     public let stat: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case change = "change"
-        case stat = "stat"
-    }
 }
 
 /// Past Move Stat Values
@@ -1573,16 +1110,6 @@ public struct PastMoveStatValues: Codable {
     
     /// The version group in which these move stat values were in effect
     public let versionGroup: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case accuracy = "accuracy"
-        case effectChance = "effect_chance"
-        case power = "power"
-        case pp = "pp"
-        case effectEntries = "effect_entries"
-        case type = "type"
-        case versionGroup = "version_group"
-    }
 }
 
 /// Move Meta Data
@@ -1619,25 +1146,10 @@ public struct MoveMetaData: Codable {
     public let ailmentChance: Int
     
     /// The likelyhood this attack will cause the target pokemon to flinch
-    public let flinchEhance: Int
+    public let flinchChance: Int
     
     /// The likelyhood this attack will cause a stat change in the target pokemon
     public let statChance: Int
-
-    enum CodingKeys: String, CodingKey {
-        case ailment = "ailment"
-        case category = "category"
-        case minHits = "min_hits"
-        case maxHits = "max_hits"
-        case minTurns = "min_turns"
-        case maxTurns = "max_turns"
-        case drain = "drain"
-        case healing = "healing"
-        case critRate = "crit_rate"
-        case ailmentChance = "ailment_chance"
-        case flinchEhance = "flinch_chance"
-        case statChance = "stat_chance"
-    }
 }
 
 /// Ability Effect Change
@@ -1648,11 +1160,6 @@ public struct AbilityEffectChange: Codable {
     
     /// The version group in which the previous effect of this ability originated
     public let versionGroup: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case effectEntries = "effect_entries"
-        case versionGroup = "version_group"
-    }
 }
 
 /// Contest Combo Detail
@@ -1663,26 +1170,16 @@ public struct ContestComboDetail: Codable {
     
     /// A list of moves to use after this move
     public let useAfter:  [NamedAPIResource]?
-
-    enum CodingKeys: String, CodingKey {
-        case useBefore = "use_before"
-        case useAfter = "use_after"
-    }
 }
 
 /// Contest Combo Sets
 public struct ContestComboSets: Codable {
     
     /// A detail of moves this move can be used before or after, granting additional appeal points in contests
-    public let normalMove: ContestComboDetail
+    public let normal: ContestComboDetail
     
     /// A detail of moves this move can be used before or after, granting additional appeal points in super contests
-    public let superMove: ContestComboDetail
-
-    enum CodingKeys: String, CodingKey {
-        case normalMove = "normal"
-        case superMove = "super"
-    }
+    public let `super`: ContestComboDetail
 }
 
 /// Moves are the skills of Pokémon in battle. In battle, a Pokémon uses one move each turn. Some moves (including those learned by Hidden Machine) can be used outside of battle as well, usually for the purpose of removing obstacles or exploring new areas.
@@ -1750,30 +1247,6 @@ public struct Move: Codable {
     
     /// The elemental type of this move	NamedAPIResource
     public let type: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case names = "names"
-        case accuracy = "accuracy"
-        case effectChance = "effect_chance"
-        case pp = "pp"
-        case priority = "priority"
-        case power = "power"
-        case contestCombos = "contest_combos"
-        case contestType = "contest_type"
-        case contestEffect = "contest_effect"
-        case damageClass = "damage_class"
-        case effectEntries = "effect_entries"
-        case effectChanges = "effect_changes"
-        case generation = "generation"
-        case meta = "meta"
-        case pastValues = "past_values"
-        case statChanges = "stat_changes"
-        case superContestEffect = "super_contest_effect"
-        case target = "target"
-        case type = "type"
-    }
 }
 
 /// Pockets within the players bag used for storing items by category.
@@ -1790,13 +1263,6 @@ public struct ItemPocket: Codable {
     
     /// The name of this item pocket listed in different languages
     public let names:  [Name]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case categories = "categories"
-        case names = "names"
-    }
 }
 
 /// Effect
@@ -1807,11 +1273,6 @@ public struct Effect: Codable {
     
     /// The language this effect is in
     public let language: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case effect = "effect"
-        case language = "language"
-    }
 }
 
 /// The various effects of the move "Fling" when used with different items.
@@ -1828,13 +1289,6 @@ public struct ItemFlingEffect: Codable {
     
     /// A list of items that have this fling effect	list
     public let items:  [NamedAPIResource]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case effectEntries = "effect_entries"
-        case items = "items"
-    }
 }
 
 /// Item categories determine where items will be placed in the players bag.
@@ -1854,14 +1308,6 @@ public struct ItemCategory: Codable {
     
     /// The pocket items in this category would be put in
     public let pocket: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case items = "items"
-        case names = "names"
-        case pocket = "pocket"
-    }
 }
 
 /// Item attributes define particular aspects of items, e.g. "usable in battle" or "consumable".
@@ -1881,14 +1327,6 @@ public struct ItemAttribute: Codable {
     
     /// The description of this item attribute listed in different languages
     public let descriptions:  [Description]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case items = "items"
-        case names = "names"
-        case descriptions = "descriptions"
-    }
 }
 
 /// Verbose Effect
@@ -1902,12 +1340,6 @@ public struct VerboseEffect: Codable {
     
     /// The language this effect is in
     public let language: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case effect = "effect"
-        case shortEffect = "short_effect"
-        case language = "language"
-    }
 }
 
 /// Version Group Flavor Text
@@ -1921,12 +1353,6 @@ public struct VersionGroupFlavorText: Codable {
     
     /// The version group which uses this flavor text
     public let versionGroup: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case text = "text"
-        case language = "language"
-        case versionGroup = "version_group"
-    }
 }
 
 /// Generation Game Index
@@ -1937,21 +1363,12 @@ public struct GenerationGameIndex: Codable {
     
     /// The generation relevent to this game index
     public let generation: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case gameIndex = "game_index"
-        case generation = "generation"
-    }
 }
 
 /// Item Sprites
 public struct ItemSprites: Codable {
     /// The default depiction of this item
-    public let defaultDepiction: String
-
-    enum CodingKeys: String, CodingKey {
-        case defaultDepiction = "default"
-    }
+    public let `default`: String
 }
 
 
@@ -1959,10 +1376,6 @@ public struct ItemSprites: Codable {
 public struct APIResource: Codable {
     /// The URL of the referenced resource
     public let url: String
-
-    enum CodingKeys: String, CodingKey {
-        case url = "url"
-    }
 }
 
 /// An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area.
@@ -2009,23 +1422,6 @@ public struct Item: Codable {
     
     /// An evolution chain this item requires to produce a bay during mating
     public let babyTriggerFor:  [APIResource]?
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case cost = "cost"
-        case flingPower = "fling_power"
-        case flingEffect = "fling_effect"
-        case attributes = "attributes"
-        case category = "category"
-        case effectEntries = "effect_entries"
-        case flavorTextEntries = "flavor_text_entries"
-        case gameIndices = "game_indices"
-        case names = "names"
-        case sprites = "sprites"
-        case heldByPokemon = "held_by_pokemon"
-        case babyTriggerFor = "baby_trigger_for"
-    }
 }
 
 /// Version groups categorize highly similar versions of the games.
@@ -2054,17 +1450,6 @@ public struct VersionGroup: Codable {
     
     /// The versions this version group owns
     public let versions:  [NamedAPIResource]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case order = "order"
-        case generation = "generation"
-        case moveLearnMethods = "move_learn_methods"
-        case pokedexes = "pokedexes"
-        case regions = "regions"
-        case versions = "versions"
-    }
 }
 
 /// Versions of the games, e.g., Red, Blue or Yellow.
@@ -2081,13 +1466,6 @@ public struct Version: Codable {
     
     /// The version group this version belongs to
     public let versionGroup: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case names = "names"
-        case versionGroup = "version_group"
-    }
 }
 
 /// Description
@@ -2098,11 +1476,6 @@ public struct Description: Codable {
     
     /// The language this name is in
     public let language: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case description = "description"
-        case language = "language"
-    }
 }
 
 /// Entry
@@ -2113,11 +1486,6 @@ public struct Entry: Codable {
     
     /// The Pokémon species being encountered
     public let pokemonSpecies: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case entryNumber = "entry_number"
-        case pokemonSpecies = "pokemon_species"
-    }
 }
 
 /// A Pokédex is a handheld electronic encyclopedia device; one which is capable of recording and retaining information of the various Pokémon in a given region with the exception of the national dex and some smaller dexes related to portions of a region. See Bulbapedia for greater detail.
@@ -2146,17 +1514,6 @@ public struct Pokedex: Codable {
     
     /// A list of version groups this Pokédex is relevent to
     public let versionGroups:  [NamedAPIResource]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case isMainSeries = "is_main_series"
-        case descriptions = "descriptions"
-        case names = "names"
-        case pokemonEntries = "pokemon_entries"
-        case region = "region"
-        case versionGroups = "version_groups"
-    }
 }
 
 /// A generation is a grouping of the Pokémon games that separates them based on the Pokémon they include. In each generation, a new set of Pokémon, Moves, Abilities and Types that did not exist in the previous generation are released.
@@ -2188,18 +1545,6 @@ public struct Generation: Codable {
     
     /// A list of version groups that were introduced in this generation
     public let versionGroups:  [NamedAPIResource]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case names = "names"
-        case abilities = "abilities"
-        case mainRegion = "main_region"
-        case moves = "moves"
-        case pokemonSpecies = "pokemon_species"
-        case types = "types"
-        case versionGroups = "version_groups"
-    }
 }
 
 /// Evolution triggers are the events and conditions that cause a pokemon to evolve. Check out Bulbapedia for greater detail.
@@ -2216,13 +1561,6 @@ public struct EvolutionTrigger: Codable {
     
     /// A list of pokemon species that result from this evolution trigger
     public let pokemonSpecies:  [NamedAPIResource]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case names = "names"
-        case pokemonSpecies = "pokemon_species"
-    }
 }
 
 /// Evolution Detail
@@ -2281,27 +1619,6 @@ public struct EvolutionDetail: Codable {
     
     /// Whether or not the 3DS needs to be turned upside-down as this Pokémon levels up.
     public let turnUpsideDown: Bool
-
-    enum CodingKeys: String, CodingKey {
-        case item = "item"
-        case trigger = "trigger"
-        case gender = "gender"
-        case heldItem = "held_item"
-        case knownMove = "known_move"
-        case knownMoveType = "known_move_type"
-        case location = "location"
-        case minLevel = "min_level"
-        case minHappiness = "min_happiness"
-        case minBeauty = "min_beauty"
-        case minAffection = "min_affection"
-        case needsOverworldRain = "needs_overworld_rain"
-        case partySpecies = "party_species"
-        case partyType = "party_type"
-        case relativePhysicalStats = "relative_physical_stats"
-        case timeOfDay = "time_of_day"
-        case tradeSpecies = "trade_species"
-        case turnUpsideDown = "turn_upside_down"
-    }
 }
 
 /// Clain Link
@@ -2318,13 +1635,6 @@ public struct ClainLink: Codable {
     
     /// A List of chain objects.
     public let evolvesTo:  [ClainLink]
-
-    enum CodingKeys: String, CodingKey {
-        case isBaby = "is_baby"
-        case species = "species"
-        case evolutionDetails = "evolution_details"
-        case evolvesTo = "evolves_to"
-    }
 }
 
 /// Evolution Chain
@@ -2338,12 +1648,6 @@ public struct EvolutionChain: Codable {
     
     /// The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.
     public let chain: ClainLink
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case babyTriggerItem = "baby_trigger_item"
-        case chain = "chain"
-    }
 }
 
 
@@ -2361,13 +1665,6 @@ public struct EncounterConditionValue: Codable {
     
     /// The name of this encounter condition value listed in different languages
     public let names:  [Name]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case condition = "condition"
-        case names = "names"
-    }
 }
 
 /// Encounter Condition
@@ -2384,13 +1681,6 @@ public struct EncounterCondition: Codable {
     
     /// The name of this encounter method listed in different languages
     public let names:  [Name]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case values = "values"
-        case names = "names"
-    }
 }
 
 /// Methods by which the player might can encounter Pokémon in the wild, e.g., walking in tall grass. Check out Bulbapedia for greater detail.
@@ -2407,13 +1697,6 @@ public struct EncounterMethod: Codable {
     
     /// The name of this encounter method listed in different languages
     public let names:  [Name]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case order = "order"
-        case names = "names"
-    }
 }
 
 /// Super contest effects refer to the effects of moves when used in super contests.
@@ -2430,13 +1713,6 @@ public struct SuperContestEffect: Codable {
     
     /// A list of moves that have the effect when used in super contests
     public let moves:  [NamedAPIResource]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case appeal = "appeal"
-        case flavorTextEntries = "flavor_text_entries"
-        case moves = "moves"
-    }
 }
 
 
@@ -2448,11 +1724,6 @@ public struct FlavorText: Codable {
     
     /// The language this name is in
     public let language: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case flavorText = "flavor_text"
-        case language = "language"
-    }
 }
 
 
@@ -2464,11 +1735,6 @@ public struct EffectEntry: Codable {
     
     /// The language this effect is in
     public let language: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case effect = "effect"
-        case language = "language"
-    }
 }
 
 /// Contest effects refer to the effects of moves when used in contests.
@@ -2488,14 +1754,6 @@ public struct ContestEffect: Codable {
     
     /// The flavor text of this contest effect listed in different languages
     public let flavorTextEntries:  [FlavorText]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case appeal = "appeal"
-        case jam = "jam"
-        case effectEntries = "effect_entries"
-        case flavorTextEntries = "flavor_text_entries"
-    }
 }
 
 /// Contest types are categories judges used to weigh a Pokémon's condition in Pokémon contests. Check out Bulbapedia for greater detail.
@@ -2512,13 +1770,6 @@ public struct ContestType: Codable {
     
     /// The name of this contest type listed in different languages
     public let names:  [Name]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case berryFlavor = "berry_flavor"
-        case names = "names"
-    }
 }
 
 /// Named API Resource List
@@ -2535,13 +1786,6 @@ public struct NamedAPIResourceList: Codable {
     
     /// List of named API resources
     public let results:  [NamedAPIResource]
-
-    enum CodingKeys: String, CodingKey {
-        case count = "count"
-        case next = "next"
-        case previous = "previous"
-        case results = "results"
-    }
 }
 
 /// API Resource List
@@ -2558,13 +1802,6 @@ public struct APIResourceList: Codable {
 
     /// List of unnamed API resources
     public let results:  [APIResource]
-
-    enum CodingKeys: String, CodingKey {
-        case count = "count"
-        case next = "next"
-        case previous = "previous"
-        case results = "results"
-    }
 }
 
 /// Name
@@ -2575,11 +1812,6 @@ public struct Name: Codable {
     
     /// The language this name is in
     public let language: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case name = "name"
-        case language = "language"
-    }
 }
 
 
@@ -2591,11 +1823,6 @@ public struct NamedAPIResource: Codable {
     
     /// The URL of the referenced resource
     public let url: String
-
-    enum CodingKeys: String, CodingKey {
-        case name = "name"
-        case url = "url"
-    }
 }
 
 public struct BerryFlavourMap: Codable {
@@ -2605,11 +1832,6 @@ public struct BerryFlavourMap: Codable {
     
     /// The berry with the referenced flavor
     public let flavor: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case potency = "potency"
-        case flavor = "flavor"
-    }
 }
 
 /// Flavors determine whether a Pokémon will benefit or suffer from eating a berry based on their nature. Check out Bulbapedia for greater detail.
@@ -2629,14 +1851,6 @@ public struct BerryFlavour: Codable {
     
     /// The name of this berry flavor listed in different languages
     public let names: [Name]
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case berries = "berries"
-        case contestType = "contest_type"
-        case names = "names"
-    }
 }
 
 /// Flavour Berry Map
@@ -2647,11 +1861,6 @@ public struct FlavourBerryMap: Codable {
     
     /// The berry with the referenced flavor
     public let berry: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case potency = "potency"
-        case berry = "berry"
-    }
 }
 
 /// Berries are small fruits that can provide HP and status condition restoration, stat enhancement, and even damage negation when eaten by Pokémon. Check out Bulbapedia for greater detail.
@@ -2692,21 +1901,6 @@ public struct Berry: Codable {
     
     /// The Type the move "Natural Gift" has when used with this Berry
     public let naturalGiftType: NamedAPIResource
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case growthTime = "growth_time"
-        case maxHarvest = "max_harvest"
-        case naturalGiftPower = "natural_gift_power"
-        case size = "size"
-        case smoothness = "smoothness"
-        case soilDryness = "soil_dryness"
-        case firmness = "firmness"
-        case flavors = "flavors"
-        case item = "item"
-        case naturalGiftType = "natural_gift_type"
-    }
 }
 
 /// Berry Firmness
@@ -2723,11 +1917,4 @@ public struct BerryFirmness: Codable {
     
     /// The name for this berry firmness resource
     public let name: String
-
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case berries = "berries"
-        case names = "names"
-        case name = "name"
-    }
 }

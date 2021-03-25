@@ -11,10 +11,6 @@ import Combine
 
 class READMETests: XCTestCase {
     
-    static let allTests = [
-        testExample1,
-    ]
-    
     func testExample1() {
         let expectation = XCTestExpectation()
         

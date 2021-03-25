@@ -1,7 +1,1 @@
-import XCTest
-
-import PokemonKitTests
-
-var tests = [XCTestCaseEntry]()
-tests += PokemonKitTests.allTests()
-XCTMain(tests)
+fatalError("Run the tests with `swift test --enable-test-discovery`.")

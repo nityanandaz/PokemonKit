@@ -44,11 +44,6 @@ struct AnyResource {
 
 class InternalTests: XCTestCase {
     
-    static let allTests = [
-        testResources,
-        testFirstElements,
-    ]
-    
     let resources: [AnyResource] = [
         AnyResource(Ability.self),
         AnyResource(Berry.self),
